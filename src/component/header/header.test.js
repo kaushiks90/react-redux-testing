@@ -26,7 +26,6 @@ const setUp = (props = {}) => {
             });
             it('should render a logo', () => {
                 const wrapper = findByTestAttr(component, 'logoIMG');
-                console.log(wrapper);
                 expect(wrapper.length).toBe(1);
             });
         })
