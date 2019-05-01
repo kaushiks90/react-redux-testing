@@ -4,9 +4,10 @@ import {
 } from 'enzyme';
 import Headline from './index';
 import {
-    findByTestAttr
+    findByTestAttr,
+    checkProps
 } from '../../utils/index'
-import checkPropTypes from 'check-prop-types'
+
 
 const setUp = (props = {}) => {
         const component = shallow( < Headline {
@@ -31,7 +32,7 @@ const setUp = (props = {}) => {
                             onlineStatus: false
                         }]
                     }
-                    const propsErr = checkPropTypes(Headline.propTypes, expectedProps, 'props', Headline.name);
+                    const propsErr = checkProps(Headline, expectedProps);
                     expect(propsErr).toBeUndefined();
                 })
             })
