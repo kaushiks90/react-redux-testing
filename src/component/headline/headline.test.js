@@ -6,10 +6,7 @@ import Headline from './index';
 import {
     findByTestAttr
 } from '../../utils/index'
-import {
-    isTSAnyKeyword,
-    exportAllDeclaration
-} from '@babel/types';
+import checkPropTypes from 'check-prop-types'
 
 const setUp = (props = {}) => {
         const component = shallow( < Headline {
@@ -20,6 +17,25 @@ const setUp = (props = {}) => {
         }
 
         describe('Headline Component', () => {
+
+            describe('checking propTypes', () => {
+                it('should not throw a warning', () => {
+                    const expectedProps = {
+                        header: 'Test Header',
+                        desc: "Test desc",
+                        tempArr: [{
+                            fName: 'Test fName',
+                            lName: 'Test lName',
+                            email: 'test@gmail.com',
+                            age: 23,
+                            onlineStatus: false
+                        }]
+                    }
+                    const propsErr = checkPropTypes(Headline.propTypes, expectedProps, 'props', Headline.name);
+                    expect(propsErr).toBeUndefined();
+                })
+            })
+
             describe('Have props', () => {
                 let wrapper;
                 beforeEach(() => {
