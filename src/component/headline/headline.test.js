@@ -56,7 +56,6 @@ const setUp = (props = {}) => {
 
                 })
                 it('should render a desc', () => {
-                    console.log(wrapper)
                     const desc = findByTestAttr(wrapper, 'desc');
                     expect(desc.length).toBe(1);
                 })
@@ -67,7 +66,6 @@ const setUp = (props = {}) => {
                 let wrapper;
                 beforeEach(() => {
                     wrapper = setUp()
-                    console.log(wrapper)
                 })
                 it('should not render', () => {
                     const component = findByTestAttr(wrapper, 'HeadlineComponent');
