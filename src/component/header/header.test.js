@@ -4,12 +4,8 @@ import {
 } from "enzyme";
 import {
     findByTestAttr
-} from "./../../utils/index";
+} from "../../utils/index";
 import Header from "./index";
-import {
-    isTSAnyKeyword,
-    exportAllDeclaration
-} from "@babel/types";
 
 const setUp = (props = {}) => {
         const component = shallow( < Header {
@@ -17,7 +13,7 @@ const setUp = (props = {}) => {
             }
             />);
             return component;
-        }
+        };
 
         describe('Header component', () => {
             let component;
@@ -29,7 +25,7 @@ const setUp = (props = {}) => {
                 expect(wrapper.length).toBe(1);
             });
             it('should render a logo', () => {
-                const wrapper = findByTestAttr(component, 'logoImg');
+                const wrapper = findByTestAttr(component, 'logoIMG');
                 console.log(wrapper);
                 expect(wrapper.length).toBe(1);
             });
