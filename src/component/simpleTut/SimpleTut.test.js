@@ -1,22 +1,23 @@
-import App from './App';
+import SimpleTut from './index';
 import {
     shallow
 } from 'enzyme';
 import {
-    findByTestAtrr,
+    findByTestAttr,
+    checkProps,
     testStore
-} from './../Utils';
+} from './../../utils/index'
 import React from 'react';
+
 
 const setUp = (initialState = {}) => {
         const store = testStore(initialState);
-        const wrapper = shallow( < App store = {
+        const wrapper = shallow( < SimpleTut store = {
                 store
             }
             />).childAt(0).dive();
             return wrapper;
         };
-
 
         describe('App Component', () => {
 
@@ -38,7 +39,7 @@ const setUp = (initialState = {}) => {
             });
 
             it('Should render without errors', () => {
-                const component = findByTestAtrr(wrapper, 'appComponent');
+                const component = findByTestAttr(wrapper, 'app');
                 expect(component.length).toBe(1);
             });
 

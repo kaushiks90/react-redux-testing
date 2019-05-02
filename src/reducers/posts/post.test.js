@@ -16,7 +16,7 @@ describe('Post Reducer', () => {
         }, {
             title: 'Test 3'
         }]
-        console.log(posts)
+
         const newState = postReducer(undefined, {
             type: types.GET_POSTS,
             payload: posts
