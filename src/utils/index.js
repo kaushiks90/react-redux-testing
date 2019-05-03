@@ -23,3 +23,14 @@ export const testStore = (initialState) => {
     const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
     return createStoreWithMiddleware(rootReducer, initialState);
 };
+
+export const updateInput = (component, attr, newValue) => {
+    const input = component.find(`[data-test='${attr}']`)
+    input.simulate('change', {
+        currentTarget: {
+            value: newValue
+        }
+    })
+
+    return input.find(`[data-test='${attr}']`);
+}
